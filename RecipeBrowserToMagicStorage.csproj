@@ -12,7 +12,10 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MagicStorage">
-      <HintPath>..\Mod Libraries\MagicStorage_v0.5.7.dll</HintPath>
+      <HintPath>..\Mod Libraries\MagicStorage.dll</HintPath>
+    </Reference>
+    <Reference Include="SerousCommonLib">
+      <HintPath>..\Mod Libraries\SerousCommonLib.dll</HintPath>
     </Reference>
   </ItemGroup>
 </Project>
