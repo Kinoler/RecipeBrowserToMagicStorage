@@ -6,6 +6,7 @@ using MagicStorage;
 using MagicStorage.Common.Systems;
 using MagicStorage.Components;
 using MagicStorage.UI;
+using MagicStorage.UI.Input;
 using MagicStorage.UI.States;
 using RecipeBrowserToMagicStorage.Utils;
 using Terraria;
@@ -18,7 +19,6 @@ namespace RecipeBrowserToMagicStorage.Hooks
         public static void SetMagicStorageFilterName(string name)
         {
             Type type = null;
-            Action refreshItemsAction = null;
             object storagePage = null;
 
             var openedStorageType = GetCurrentOpenedStorageType();
@@ -28,23 +28,20 @@ namespace RecipeBrowserToMagicStorage.Hooks
                     return;
                 case StorageType.Crafting:
                     type = typeof(CraftingGUI);
-                    refreshItemsAction = CraftingGUI.RefreshItems;
                     storagePage = MagicUI.craftingUI.GetPage("Crafting");
                     break;
                 case StorageType.Storage:
                     type = typeof(StorageGUI);
-                    refreshItemsAction = StorageGUI.RefreshItems;
                     storagePage = MagicUI.storageUI.GetPage("Storage");
                     break;
             }
             
-            var searchBar = ReflectionUtils.GetField<UISearchBar>(storagePage, "searchBar");
+            var searchBar = ReflectionUtils.GetField<NewUISearchBar>(storagePage, "searchBar");
             if (searchBar == null)
                 return;
 
-            ReflectionUtils.SetValue(searchBar, "Text", name);
-            ReflectionUtils.SetValue(searchBar, "cursorPosition", name.Length);
-            refreshItemsAction?.Invoke();
+            searchBar.State.Set(name);
+            MagicUI.RefreshItems();
 
             if (openedStorageType == StorageType.Crafting)
             {
@@ -56,8 +53,6 @@ namespace RecipeBrowserToMagicStorage.Hooks
         {
             try
             {
-                StorageGUI.RefreshItems();
-
                 var type = typeof(CraftingGUI);
 
                 var threadRecipes = ReflectionUtils.GetField<List<Recipe>>(null, "recipes", type);
@@ -91,7 +86,7 @@ namespace RecipeBrowserToMagicStorage.Hooks
         private static void SelectRecipe(Recipe selectRecipe)
         {
             ReflectionUtils.SetValue(null, "selectedRecipe", selectRecipe, typeof(CraftingGUI));
-            StorageGUI.RefreshItems();
+            MagicUI.SetRefresh();
         }
 
         private static StorageType GetCurrentOpenedStorageType()
