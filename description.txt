@@ -1,15 +1,15 @@
 Allows you to filter items in your magic storage according to the selected item in the Recipe browser.
 
-Magic storage:
-Filters if the crafting or the storage panel is open.
+Recipe browser window:
+Select the item holding the Ctrl while any of recipe browser's (Recipe, Ingrigient or Items) window is open. (Key can be changed in settings)
 
-Recipe browser:
-Filters when the item selected in one of Recipe list, Ingrigient list or Items list.
+Magic storage window:
+Filter items if any of the crafting or the storage panel is open.
 
 
-By default filters by click on item only if the filter hot key is pressed in that moment. That behaviour can be changed in the config.
+By default the mod filters the items by clicking on item only if the filter hot key is pressed in that moment. This behaviour can be changed in the config.
 
-If you encounter any errors, please don't hesitate to create a ticket in my GitHub repository (https://github.com/Kinoler/RecipeBrowserToMagicStorage/issues), specifying your exact version of Terraria and TML.
+In case of you encounter any errors or incompatible TML version issue, please don't hesitate to create a ticket in my GitHub repository https://github.com/Kinoler/RecipeBrowserToMagicStorage/issues, specifying your exact version of Terraria and TML.
 
 Change log:
 
@@ -22,28 +22,3 @@ Description updated
 
 1.0.0.10:
 Fixed incompatible with other mods hook approach
-
-1.0.0.9:
-Updated to latest TML
-
-1.0.0.8:
-Fixed config saving
-
-1.0.0.7:
-Fixed recipe selection
-
-1.0.0.6:
-Added empty icon
-Changed mod type to client side
-
-1.0.0.5:
-Upgraded to 1.4
-
-1.0.0.4:
-Fixed calling the base method for ingredients
-
-1.0.0.3:
-Added homepage, Renamed config property 
-
-1.0.0.2:
-Added auto selecting recipe in the craft menu

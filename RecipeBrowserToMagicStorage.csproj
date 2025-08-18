@@ -1,18 +1,19 @@
-<?xml version="1.0" encoding="utf-8"?>
+
 <Project Sdk="Microsoft.NET.Sdk">
   <Import Project="..\tModLoader.targets" />
   <PropertyGroup>
     <AssemblyName>RecipeBrowserToMagicStorage</AssemblyName>
-    <TargetFramework>net6.0</TargetFramework>
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="tModLoader.CodeAssist" Version="0.1.*" />
-  </ItemGroup>
-  <ItemGroup>
     <Reference Include="MagicStorage">
-      <HintPath>..\Mod Libraries\MagicStorage_v0.5.7.dll</HintPath>
+      <HintPath>..\ModAssemblies\MagicStorage_v0.7.0.9.dll</HintPath>
+    </Reference>
+    <Reference Include="RecipeBrowser">
+      <HintPath>..\ModAssemblies\RecipeBrowser_v0.10.12.dll</HintPath>
+    </Reference>
+    <Reference Include="SerousCommonLib">
+      <HintPath>..\ModAssemblies\SerousCommonLib_v1.0.6.2.dll</HintPath>
     </Reference>
   </ItemGroup>
 </Project>
